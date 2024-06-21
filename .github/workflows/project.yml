@@ -1,4 +1,4 @@
-name: test project
+name: deployment project
 on: push
 jobs:
   practice:
@@ -14,3 +14,16 @@ jobs:
         run: npm ci
       - name: test case
         run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v4
+      - name: installing NODE JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+      - run: echo "deploying....."
+
