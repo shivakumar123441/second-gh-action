@@ -12,4 +12,5 @@ jobs:
           node-version: 18
       - name: installing dependencies
         run: npm ci
+      - name: test case
         run: npm test
